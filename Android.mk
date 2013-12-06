@@ -81,6 +81,24 @@ LOCAL_SHARED_LIBRARIES += libssh libssl libcrypto libdl libz
 
 include $(BUILD_EXECUTABLE)
 
+###################### sftp ######################
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_SRC_FILES := \
+    sftp-server-main.c sftp-server.c sftp-common.c sftp-glob.c
+
+LOCAL_MODULE := sftp-server
+
+LOCAL_C_INCLUDES := external/openssl/include
+PRIVATE_C_INCLUDES := external/openssl/openbsd-compat
+
+LOCAL_SHARED_LIBRARIES += libssh libssl libcrypto libdl libz
+
+include $(BUILD_EXECUTABLE)
+
 ###################### scp ######################
 
 include $(CLEAR_VARS)
